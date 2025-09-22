@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
+import { useAuth } from "../hooks/useAuth";
 
-export default function Applications({ token }: { token: string }) {
+export default function Applications() {
+  const { auth } = useAuth();
   const [applications, setApplications] = useState<any[]>([]);
   const [company, setCompany] = useState("");
   const [position, setPosition] = useState("");
@@ -10,15 +12,17 @@ export default function Applications({ token }: { token: string }) {
     const fetchApplications = async () => {
       try {
         const response = await api.get("/applications", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${auth.token}` },
         });
         setApplications(response.data);
       } catch {
         alert("Failed to fetch applications.");
       }
     };
-    fetchApplications();
-  }, [token]);
+    if (auth.token) {
+      fetchApplications();
+    }
+  }, [auth.token]);
 
   const addApplication = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +30,7 @@ export default function Applications({ token }: { token: string }) {
       const response = await api.post(
         "/applications",
         { company, position },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${auth.token}` } }
       );
       setApplications([...applications, response.data]);
       setCompany("");

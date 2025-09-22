@@ -13,5 +13,5 @@ export function useAuth() {
     setToken("");
   };
 
-  return { token, saveToken, logout };
+  return { auth: { token }, saveToken, logout };
 }
