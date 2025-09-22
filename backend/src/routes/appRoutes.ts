@@ -18,12 +18,14 @@ router.get("/", protect, async (req: any, res) => {
 });
 
 router.post("/", protect, async (req: any, res) => {
-  const { company, position } = req.body;
+  const { company, position, status, notes } = req.body;
   try {
     const application = await prisma.application.create({
       data: {
         company,
         position,
+        status,
+        notes,
         userId: req.user.id,
       },
     });

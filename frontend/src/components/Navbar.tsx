@@ -1,7 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({ auth, logout }) => {
+interface NavbarProps {
+  auth: {
+    token: string;
+  };
+  logout: () => void;
+}
+
+const Navbar = ({ auth, logout }: NavbarProps) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -13,16 +20,18 @@ const Navbar = ({ auth, logout }) => {
     <nav>
       <h1>Job Tracker</h1>
       <ul>
-        <li>
-          <Link to="/">Dashboard</Link>
-        </li>
-        <li>
-          <Link to="/applications">Applications</Link>
-        </li>
         {auth.token ? (
-          <li>
-            <button onClick={handleLogout}>Logout</button>
-          </li>
+          <>
+            <li>
+              <Link to="/">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/applications">Applications</Link>
+            </li>
+            <li>
+              <button onClick={handleLogout}>Logout</button>
+            </li>
+          </>
         ) : (
           <>
             <li>

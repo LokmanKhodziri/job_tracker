@@ -23,11 +23,11 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route
           path='/dashboard'
-          element={auth.token ? <Dashboard auth={auth} /> : <Navigate to='/login' />}
+          element={auth.token ? <Dashboard /> : <Navigate to='/login' />}
         />
         <Route
           path='/applications'
-          element={auth.token ? <Applications auth={auth} /> : <Navigate to='/login' />}
+          element={auth.token ? <Applications /> : <Navigate to='/login' />}
         />
       </Routes>
     </BrowserRouter>
