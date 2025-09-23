@@ -7,6 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Defines the User model
 model User {
   id        Int      @id @default(autoincrement())
   name      String
@@ -18,6 +19,7 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+// Defines the Application model
 model Application {
   id        Int      @id @default(autoincrement())
   company   String
@@ -30,11 +32,13 @@ model Application {
   updatedAt DateTime @updatedAt
 }
 
+// Defines the Role enum for user roles
 enum Role {
   USER
   ADMIN
 }
 
+// Defines the Status enum for application statuses
 enum Status {
   APPLIED
   INTERVIEWING
