@@ -22,3 +22,25 @@ export const getApplications = async (req: Request, res: Response) => {
   });
   res.status(200).json({ applications: apps });
 };
+
+export const getDashboardStats = async (req: Request, res: Response) => {
+  const userId = (req as any).user.id;
+
+  const totalApplications = await prisma.application.count({
+    where: { userId },
+  });
+
+  const upcomingInterviews = await prisma.application.count({
+    where: { userId, status: "INTERVIEWING" },
+  });
+
+  const rejectedApplications = await prisma.application.count({
+    where: { userId, status: "REJECTED" },
+  });
+
+  res.status(200).json({
+    totalApplications,
+    upcomingInterviews,
+    rejectedApplications,
+  });
+};

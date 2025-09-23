@@ -1,8 +1,11 @@
 import { Router } from "express";
 import { protect } from "../middleware/auth";
+import { getDashboardStats } from "../controllers/appController";
 import prisma from "../config/prisma";
 
 const router = Router();
+
+router.get("/stats", protect, getDashboardStats);
 
 router.get("/", protect, async (req: any, res) => {
   try {
