@@ -1,0 +1,158 @@
+/* styles for Applications.tsx */
+
+.applications-page {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom right, #eef2ff, #e0e7ff);
+    min-height: 100vh;
+}
+
+.applications-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.add-application-form {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.add-application-form h2 {
+    text-align: center;
+    color: #4f46e5;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.add-application-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-primary {
+    grid-column: 1 / -1;
+    padding: 0.9rem;
+    background-color: #4f46e5;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.applications-list-container {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.applications-list-container h2 {
+  text-align: center;
+  color: #4f46e5;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.applications-list {
+  list-style: none;
+  padding: 0;
+}
+
+.application-item {
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eee;
+}
+
+.application-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.application-item p {
+  margin: 0.25rem 0 0;
+  color: #666;
+}
+
+.application-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+/* Status colors */
+.status-APPLIED {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.status-INTERVIEWING {
+  background-color: #fffbe6;
+  color: #f0ad4e;
+}
+
+.status-OFFER {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.status-REJECTED {
+  background-color: #fff1f0;
+  color: #f5222d;
+}

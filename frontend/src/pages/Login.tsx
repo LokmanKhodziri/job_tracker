@@ -1,6 +1,7 @@
 import { useState } from "react";
 import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/auth-page.css";
 
 export default function Login({
   saveToken,
@@ -23,23 +24,35 @@ export default function Login({
   };
 
   return (
-    <form action=''>
-      <h2>Login</h2>
-      <input
-        type='email'
-        placeholder='Email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type='password'
-        placeholder='Password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type='submit' onClick={handleSubmit}>
-        Login
-      </button>
-    </form>
+    <div className='auth-page'>
+      <form className='form-container' onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        <div className='form-group'>
+          <label htmlFor='email'>Email</label>
+          <input
+            type='email'
+            id='email'
+            placeholder='Enter your email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            id='password'
+            placeholder='Enter your password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type='submit' className='btn-primary'>
+          Login
+        </button>
+      </form>
+    </div>
   );
 }

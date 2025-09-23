@@ -1,10 +1,14 @@
 import React from 'react';
+import '../styles/dashboard.css';
 
 const Dashboard: React.FC = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Welcome to your dashboard.</p>
+    <div className="dashboard-page">
+      <div className="dashboard-container">
+        <h2>Dashboard</h2>
+        <p>Welcome to your job application tracker.</p>
+        <p>You can manage your job applications from the "Applications" page.</p>
+      </div>
     </div>
   );
 };

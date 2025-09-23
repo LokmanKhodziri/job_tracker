@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css";
+import "../styles/navbar.css";
 
 interface NavbarProps {
   auth: {
@@ -23,10 +23,10 @@ const Navbar = ({ auth, logout }: NavbarProps) => {
         {auth.token ? (
           <>
             <li>
-              <Link to="/">Dashboard</Link>
+              <Link to='/'>Dashboard</Link>
             </li>
             <li>
-              <Link to="/applications">Applications</Link>
+              <Link to='/applications'>Applications</Link>
             </li>
             <li>
               <button onClick={handleLogout}>Logout</button>
@@ -35,10 +35,10 @@ const Navbar = ({ auth, logout }: NavbarProps) => {
         ) : (
           <>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to='/login'>Login</Link>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <Link to='/register'>Register</Link>
             </li>
           </>
         )}
