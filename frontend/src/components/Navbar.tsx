@@ -13,17 +13,23 @@ const Navbar = ({ auth, logout }: NavbarProps) => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
     <nav>
-      <h1>Job Tracker</h1>
+      {auth.token ? (
+        <h1 className="navbar-brand-disabled">Job Tracker</h1>
+      ) : (
+        <Link to="/">
+          <h1>Job Tracker</h1>
+        </Link>
+      )}
       <ul>
         {auth.token ? (
           <>
             <li>
-              <Link to='/'>Dashboard</Link>
+              <Link to='/dashboard'>Dashboard</Link>
             </li>
             <li>
               <Link to='/applications'>Applications</Link>

@@ -12,6 +12,11 @@ nav h1 {
   margin: 0;
 }
 
+.navbar-brand-disabled {
+  color: #a0a0a0; /* Grayed out color */
+  cursor: default; /* Indicate not clickable */
+}
+
 nav ul {
   list-style: none;
   margin: 0;
