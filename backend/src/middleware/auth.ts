@@ -6,6 +6,7 @@ export interface JwtPayload {
   role: string;
 }
 
+// Middleware to protect routes, ensuring only authenticated users can access them
 export const protect = (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
