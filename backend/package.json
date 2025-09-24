@@ -8,8 +8,8 @@
     "start": "ts-node-dev --respawn src/server.ts",
     "build": "tsc",
     "dev": "nodemon src/server.ts",
-    //added for vercel deployment
-    "postinstall": "prisma generate --schema=./prisma/schema.prisma"
+    "postinstall": "prisma generate",
+    "vercel-build": "cp -r prisma . && npx prisma migrate deploy && npm run build"
   },
   "keywords": [],
   "author": "",
