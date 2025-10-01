@@ -123,7 +123,7 @@ Ensure you have the following installed on your system:
 4.  **Start the frontend development server:**
 
     ```bash
-    npm run dev
+    npm start
     # The app will open in your browser, usually at http://localhost:5173
     ```
 
